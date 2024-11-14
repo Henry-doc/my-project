@@ -12,9 +12,12 @@ on:
 jobs:
   build-java:
 
-    runs-on: ubuntu-latest
-    
-    steps:
+    runs-on: ${{matrix.os}}
+    strategy:
+        matrix:
+          os: [ubuntun-latest, window-latest.macOS-latest]
+  
+    steps: 
     - uses: actions/checkout@v2
 
     - name: Set up JDK 1.8
